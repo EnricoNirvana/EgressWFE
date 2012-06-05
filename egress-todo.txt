@@ -1,0 +1,93 @@
+                Need to check for unmoderated status, and generate account from request if configured for unmoderated account
+                requests
+                
+                Need to settle on some menu implementation, JQuery preferred, and implement it with the first option
+                being an admin option for account moderation
+                
+                Audit current controllers and helpers:
+                
+                    registration controller function manifest:
+                    
+                        writeregis()
+                        
+                            this function writes a registration request to disk without any preamble or checking of data beyond that which 
+                            the form does
+                        
+                        _confirm($callback)
+                        
+                            this function displays a message in the main view and waits for a click on the word 'continue'. The continuation 
+                            point is passed forward in the $callback variable
+                            
+                        mod_accountreq()
+                        
+                            this function initiates the process of account moderation
+                            
+                        mod_request($req_number)
+                        
+                            this function provides for the moderation of a single account request
+                            
+                        update_request()
+                        
+                            this function updates an account request, possibly creating the account, according to the direction of the
+                            calling function; it carries this out according to the values of globals initialized in mod_request()
+                    
+                    
+                    usermgt controller function manifesst:
+                    
+                        index()
+                            
+                            this function, as with 'index()' in many other controllers, checks login state and redirects
+                            to the anonymous splash page if the user is not logged in
+                        
+                        usercreate()
+                        
+                            
+                            
+                        newaccount()
+                        newuser()
+                        avatar_properties()
+                        set_avatarproperties()
+                        newavatar()
+                   
+                    
+                    session controller function manifest:
+                    
+                        index()
+                        
+                    
+                    auth controller function manifest:
+                    
+                        login()
+                        logout()
+                        _uuid()
+                        accountreq()
+                        
+                        
+                    breadcrumb_helper function manifest:
+                    
+                        function array_replace(array &$array, array &$array1)
+                        function set_breadcrumb($delimiter_config = '', $exclude = '')
+                        function clear_breadcrumb()
+                        
+                                                
+                    generic_session_helper function manifest:
+                    
+                        session_set($key,$val)
+                        function session_get($key)
+                        function get_session()
+                        function session_clear($key)
+                        function __sessionstart()
+                        
+                        
+                    opensim helper function manifest:
+                    
+                        _uuid()
+                        _salt()
+                        userlookup()
+                        
+                    simhost helper function manifest:
+                        
+                        presently empty
+                        
+                    
+                    

@@ -1,0 +1,110 @@
+INSTALLATION
+============
+
+REQUIREMENTS
+------------
+
+An apache/mysql/php5 stack with mod-rewrite enabled on the web
+service. Egress has been developed and tested on linux only, thus far.
+You will need 'short_tags' 'On' in your php.ini.
+
+Needless to say, basic webserver management skills will come in quite
+handy here. If you aren't comfortable with setting up and configuring
+an apache webserver, performing basic mysql administration tasks, and
+tweaking php installations, then this is probably going to be a bit
+over your head. That said, if you dont have those skillsets, you are
+probably already in over your head with opensim.
+
+
+TO INSTALL
+----------
+
+Unpack the distribution into your web root. The pages can be served
+directly from the web root if it's the only thing being served; if
+not, you can set them in their own path (this may require a little
+tweaking of the Codeigniter configuration to get perfect, but more on
+that topic will follow soon). Egress can also be installed under a
+user directory (e.g., /home/joe.user/public_html/), but this will
+require that the apache module user_directory(sp?) be active. You need
+everything in the distribution under Egress/.
+
+Edit application/config/database.php and fill in your database
+connection details for your opensim services database. This would be
+your grid database for a robust install; this is the only
+configuration that has been tested at present. We would be very
+interested to hear whether Egress works with other configurations, or
+barring that it works, what might be done to make it work with other
+configurations.
+
+You will also need to edit application/config/webmap_cfg.php and
+insert your database connection details there, and
+application/config/webmap_cfg.php to configure asset server URL and
+set grid center coordinates (note map tiles do not work in standalone
+yet).  The webmap also requires imagemagick (http://imagemagick.org)
+and openjpeg (http://openjpeg.org) make sure both have their
+executables in the windows PATH, in linux servers this is automatic,
+and also in windows you will need to create a c:\tmp folder for full
+functionality.
+
+Be sure to restart the web server if you have to enable any modules.
+
+You should now be able to access the app from a browser at
+http://www.yourserver.com/index.php/,
+http://www.yourserver.com/yourappfolder/index.php/, or
+http://www.yourserver.com/~username/somepath/index.php/, depending on
+how you set up the folders.
+
+
+OPERATIONS
+
+Operations is a very simple matter. Your grid admin (those with a user
+level of 250), will also be an admin on the website. All avatars will
+be able to log in on the website for purposes of accessing user
+functions (map and password change only at present), and admins will
+have the ability to manually reset passwords and other account
+properties, and process the approval of pending  account requests (as
+well as the typical user options).
+
+Account requests can be submitted via a link on the 'splash' page.
+
+
+TROUBLESHOOTING
+
+The code that implements this web interface is very simple, very
+straightforward, and written over a hand-holding framework that makes
+straight the way for even a php novice like myself. Provided it is
+properly configured to a properly configured opensim robust instance,
+it should operate with next to no trouble. Most problems with such
+applications arise from misconfigured dependencies (mysql user
+permissions, missing or misconfigured apache modules, or missing
+tweaks to the php.ini file). Another frequent source of trouble for
+first-time installers of such applications especially is networking;
+be sure that your apache server is responsive and reachable from your
+client, and that your mysql server is responsive and reachable from
+your apache server.
+
+
+SUPPORT
+
+Some limited support will be available via IRC on FreeNode IRC Network
+channel #simhost. By limited I mean that some of the developers and
+some of the users may be hanging out there, and we are a naturally
+helpful bunch by predisposition; although your mileage may very
+depending on the time of day and the preoccupation du jour of the
+channel users. Best advice: Log in, say hello, ask a question *and
+wait patiently for an answer*. Logging in, firing off a question, and
+logging out is a sure way to avoid getting help.
+
+Also, we the developers and contributors have a certain investment in
+time in the code, so naturally we hope you can get it to work and get
+some good use from it; however, as a more or less volunteer effort all
+around, there are no guarantees that anyone at all will have time to
+talk to you the moment you pop in, so patience is a key factor in
+getting some help
+
+THAT SAID - any developer or other contributors' needs for assistance
+will take priority on the channel. This applies to all customers of
+SimHost.com especially, for whom this software was developed directly,
+and who support its continued development with their business (and in
+some cases, donations ;).
+
